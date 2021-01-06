@@ -1,0 +1,46 @@
+{% extends 'Layout.html'%} 
+
+{% block body%}
+<h1> Product Movement</h1>
+<br/>
+
+<form action ="/EditProductMovment/{{ProductMovemtToupdate.movement_id}}" METHOD="POST">
+
+
+<div class="form-group">
+<label for="exampleFormControlInput1">Product Name</label>
+
+<input value ="{{ProductMovemtToupdate.product_id}}" class="form-control" type="text" placeholder="Quntity"   name="ProductName"> 
+</div>
+
+
+<div class="form-group">
+<label for="exampleFormControlSelect1">From Location</label>
+<input value ="{{ProductMovemtToupdate.from_location}}" class="form-control" type="text" placeholder="Quntity"   name="FromLocation"> 
+</div>
+
+<div class="form-group">
+<label for="exampleFormControlSelect1">To Location</label>
+<input value ="{{ProductMovemtToupdate.to_location}}" class="form-control" type="text" placeholder="Quntity"   name="ToLocation"> 
+
+</div>
+
+<div class="form-group">
+<label for="exampleFormControlTextarea1">Quntity </label>
+<input value ="{{ProductMovemtToupdate.qty}}" class="form-control" type="text" placeholder="Quntity"   name="Quntity"> 
+</div>
+
+
+<div class="form-group">
+<label for="exampleFormControlTextarea1">Time </label>
+<input value="{{ProductMovemtToupdate.timestamp}}"class="form-control" type="date" placeholder="time" 
+name="dateTime"> 
+</div>
+
+<input type="submit" value="Update " class="btn btn-secondary" >
+
+</form>
+
+
+<br/>
+    {% endblock %}

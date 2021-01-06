@@ -1,0 +1,12 @@
+{% extends 'Layout.html'%} 
+
+    {% block body%}
+	<h1> Edit Product </h1>
+<br/>
+<form  action ="/EditLocation/{{LocationToupdate.id}}" METHOD="POST">
+<input type="text" placeholder="Name" name="name" value="{{LocationToupdate.name}}">
+<input type="submit" value="Update Name" class="btn btn-secondary" >
+</form>
+<br/><br/>
+
+     {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'Layout.html'%} 
+
+    {% block body%}
+	<h1> Location</h1>
+<br/>
+<form  action ="/Location" METHOD="POST">
+<input type="text" placeholder="Name"   name="name">
+<input type="submit" value="Add New Location" class="btn btn-secondary" >
+</form>
+<br/><br/>
+<ul class="list-group"> 
+	 {% for Location in locations %}
+	<li class="list-group-item"> {{Location.name}} </a> 
+	<a href="/EditLocation/{{Location.id}}" class="btn btn-outline-secondary btn-sm">Edit</a> </li>
+
+	  {% endfor %}
+ </ul>
+     {% endblock %}

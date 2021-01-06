@@ -1,0 +1,87 @@
+{% extends 'Layout.html'%} 
+
+{% block body%}
+<h1> Product Movement</h1>
+<br/>
+
+<form action ="/ProductMovement" METHOD="POST">
+
+
+<div class="form-group">
+<label for="exampleFormControlInput1">Product Name</label>
+<select class="form-control"  placeholder="Product" name="ProductName" id="Product">
+{% for Product in products %}
+<option value="{{Product.name}}">{{ Product.name }}</option>
+{% endfor %}
+</select>
+</div>
+
+
+<div class="form-group">
+<label for="exampleFormControlSelect1">From Location</label>
+<select class="form-control" placeholder="Location" name="FromLocation" id="FromLocation">
+{% for Location in Location %}
+<option value="{{Location.name}}">{{ Location.name }}</option>
+{% endfor %}
+</select>
+</div>
+
+<div class="form-group">
+<label for="exampleFormControlSelect1">To Location</label>
+<select class="form-control" placeholder="Location" name="ToLocation" id="FromLocation">
+{% for Location in Location %}
+<option value="{{Location.name}}">{{ Location.name }}</option>
+{% endfor %}
+</select>
+</div>
+
+<div class="form-group">
+<label for="exampleFormControlTextarea1">Quntity </label>
+<input class="form-control" type="text" placeholder="Quntity"   name="Quntity"> 
+</div>
+
+
+<div class="form-group">
+<label for="exampleFormControlTextarea1">Time </label>
+<input  class="form-control" type="date" placeholder="time"   name="dateTime"> 
+</div>
+
+<input type="submit" value="Move this product " class="btn btn-secondary" > 
+
+</form>
+
+
+<br/>
+
+<table> 
+<ul class="list-group"> 
+	 <tr width="90%">
+        <th>Time </th>
+        <th>From </th>
+        <th>To </th>
+        <th>Product </th>
+        <th>Quntitiy </th>
+
+        
+    </tr>
+	 {% for ProductMovemt in ProductMovemnt %}
+<tr>
+
+
+
+
+
+<td><li class="list-group-item"> {{ProductMovemt.timestamp}} </a> </li> </td> 
+<td> <li class="list-group-item"> {{ProductMovemt.from_location}} </a> </li></td>
+<td><li class="list-group-item"> {{ProductMovemt.to_location}} </a> </li></td>
+<td><li class="list-group-item"> {{ProductMovemt.product_id}} </a> </li></td>
+<td><li class="list-group-item"> {{ProductMovemt.qty}} </a> </li></td>
+<td><a href="/EditProductMovment/{{ProductMovemt.movement_id}}" class="btn btn-outline-secondary btn-sm">Edit</a>  <td>
+
+</tr>
+	  {% endfor %}
+</table>
+ </ul>
+
+</div>
+     {% endblock %}
